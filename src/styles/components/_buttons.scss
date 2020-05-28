@@ -1,3 +1,32 @@
 button:focus {
   outline: 0;
 }
+
+.btn {
+  transition: $trans-2;
+
+  &:hover {
+    filter: brightness(0.75);
+  }
+}
+
+.btn-primary {
+  background-color: $blue;
+  border-color: $blue;
+
+  &:hover {
+    background-color: $blue;
+    border-color: $blue;
+  }
+}
+
+.btn-light {
+  background-color: $white;
+  border-color: $white;
+  color: $black !important;
+
+  &:hover {
+    background-color: $white;
+    border-color: $white;
+  }
+}

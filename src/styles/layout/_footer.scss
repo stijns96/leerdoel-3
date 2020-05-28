@@ -1,0 +1,29 @@
+#footer {
+  color: $grey;
+  font-size: 12px;
+  background-color: $black;
+
+  .container {
+    padding: 20px 15px;
+    border-top: 1px solid rgba(239, 239, 239, 0.25);
+  }
+
+  a {
+    color: $grey;
+    transition: 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #footer {
+    span {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}

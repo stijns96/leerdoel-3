@@ -157,26 +157,9 @@ const IndexPage = () => (
           </div>
         </div>
 
-        <div className="row">
-          <div className="filter-button-group mx-auto">
-            <button type="button" className="btn btn-primary" data-filter="*">
-              Alles
-            </button>
-            <button type="button" className="btn" data-filter=".werk">
-              Werk
-            </button>
-            <button type="button" className="btn" data-filter=".stage">
-              Stage
-            </button>
-            <button type="button" className="btn" data-filter=".school">
-              School
-            </button>
-          </div>
-        </div>
-
         <div className="row" id="gallery">
           <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">Woodstone</h4>
                 <p className="card-text">Leidinggevende</p>
@@ -200,7 +183,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">Roest</h4>
                 <p className="card-text">Gastvrouw</p>
@@ -215,7 +198,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">Expo</h4>
                 <p className="card-text">Verkoopmedewerkster</p>
@@ -230,7 +213,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">Wijnplaza</h4>
                 <p className="card-text">Commercieel medewerkster</p>
@@ -245,7 +228,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item stage">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">Ronald McDonald's Kinderhuis</h4>
                 <p className="card-text">Begeleidster</p>
@@ -262,7 +245,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item stage">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">BAM Woningbouw</h4>
                 <p className="card-text">Begeleidster</p>
@@ -277,7 +260,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item school">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">De Haagse Hogeschool</h4>
                 <p className="card-text">Integrale Veiligheidskunde</p>
@@ -294,7 +277,7 @@ const IndexPage = () => (
           </div>
 
           <div className="col-12 col-sm-6 col-lg-4 item school">
-            <div className="card">
+            <div className="card mb-4">
               <div className="card-body">
                 <h4 className="card-title">ONC Parkdreef</h4>
                 <p className="card-text">Hoger algemeen voortgezet onderwijs</p>
@@ -342,43 +325,59 @@ const IndexPage = () => (
             <h2>Contact</h2>
           </div>
         </div>
-        <form className="row" name="contact" method="POST" data-netlify="true">
-          <div className="col col-md-6">
+        <form
+          className="row"
+          name="contact"
+          id="contact-form"
+          method="POST"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+        >
+          <div className="col-12 col-md-6 mb-4 mb-md-0">
             <div className="form-group">
-              <label for="naam">Naam *</label>
-              <input type="text" className="form-control" id="naam" required />
+              <input
+                type="text"
+                className="form-control"
+                id="naam"
+                placeholder="Naam *"
+                required
+              />
             </div>
             <div className="form-group">
-              <label for="email">E-mailadres *</label>
               <input
                 type="email"
                 className="form-control"
                 id="email"
+                placeholder="E-mailadres *"
                 required
               />
             </div>
             <div className="form-group">
-              <label for="telefoonnummer">Telefoonnummer</label>
-              <input type="tel" className="form-control" id="telefoonnummer" />
+              <input
+                type="tel"
+                className="form-control"
+                id="telefoonnummer"
+                placeholder="Telefoonnummer"
+              />
             </div>
           </div>
 
-          <div className="col col-md-6">
+          <div className="col-12 col-md-6">
             <div className="form-group">
-              <label for="onderwerp">Onderwerp *</label>
               <input
                 type="text"
                 className="form-control"
                 id="onderwerp"
+                placeholder="Onderwerp"
                 required
               />
             </div>
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">Bericht *</label>
               <textarea
                 className="form-control"
-                id="exampleFormControlTextarea1"
+                id="bericht"
                 rows="3"
+                placeholder="Bericht"
                 required
               ></textarea>
             </div>
@@ -386,6 +385,8 @@ const IndexPage = () => (
               Submit
             </button>
           </div>
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
         </form>
       </div>
     </section>

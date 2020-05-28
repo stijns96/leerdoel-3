@@ -27,12 +27,31 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      {/* <Scroll /> */}
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 text-center text-md-left">
+              <span>
+                &copy; 2019 &#124; Alle rechten voorbehouden &#124; Portfolio
+                Sophie Peeman
+              </span>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right">
+              <span class="m-0">
+                Gemaakt door&nbsp;
+                <a
+                  href="https://www.waysagency.nl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Webdesignbureau Ways Agency"
+                >
+                  Ways Agency
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
       </footer>
     </>
   )
