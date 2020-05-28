@@ -54,7 +54,7 @@ const IndexPage = () => (
     </section>
 
     {/* Competenties */}
-    <section id="competenties" name="test1">
+    <section id="competenties">
       <div className="container">
         <div className="row skills">
           <div className="col-12 text-center">
@@ -342,83 +342,49 @@ const IndexPage = () => (
             <h2>Contact</h2>
           </div>
         </div>
-
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          className="needs-validation"
-          id="contact-form"
-          novalidate
-        >
-          <div className="row">
-            <div className="col-12 col-md-6 left">
-              <div className="form-group">
-                <label for="naam">
-                  Naam &#42;
-                  <input
-                    type="text"
-                    name="naam"
-                    className="form-control"
-                    id="naam"
-                    required
-                  />
-                </label>
-              </div>
-              <div className="form-group">
-                <label for="email">
-                  E-mailadres &#42;
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    id="email"
-                    required
-                  />
-                </label>
-              </div>
-              <div className="form-group">
-                <label for="tel">
-                  Telefoonnummer
-                  <input
-                    type="tel"
-                    name="tel"
-                    className="form-control"
-                    id="tel"
-                  />
-                </label>
-              </div>
+        <form className="row" name="contact" method="POST" data-netlify="true">
+          <div className="col col-md-6">
+            <div className="form-group">
+              <label for="naam">Naam *</label>
+              <input type="text" className="form-control" id="naam" required />
             </div>
-            <div className="col-12 col-md-6 right">
-              <div className="form-group">
-                <label for="tel">
-                  Onderwerp &#42;
-                  <input
-                    type="text"
-                    name="onderwerp"
-                    className="form-control"
-                    id="onderwerp"
-                    required
-                  />
-                </label>
-              </div>
-
-              <div className="form-group">
-                <label for="bericht">
-                  Bericht &#42;
-                  <textarea
-                    className="form-control"
-                    name="bericht"
-                    id="bericht"
-                    rows="5"
-                    required
-                  ></textarea>
-                </label>
-              </div>
-              <button className="btn btn-primary btn-block" type="submit">
-                Verstuur
-              </button>
+            <div className="form-group">
+              <label for="email">E-mailadres *</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                required
+              />
             </div>
+            <div className="form-group">
+              <label for="telefoonnummer">Telefoonnummer</label>
+              <input type="tel" className="form-control" id="telefoonnummer" />
+            </div>
+          </div>
+
+          <div className="col col-md-6">
+            <div className="form-group">
+              <label for="onderwerp">Onderwerp *</label>
+              <input
+                type="text"
+                className="form-control"
+                id="onderwerp"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label for="exampleFormControlTextarea1">Bericht *</label>
+              <textarea
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Submit
+            </button>
           </div>
         </form>
       </div>
