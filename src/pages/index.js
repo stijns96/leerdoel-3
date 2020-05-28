@@ -344,8 +344,9 @@ const IndexPage = () => (
         </div>
 
         <form
-          action="sendmail.php"
+          name="contact"
           method="POST"
+          data-netlify="true"
           className="needs-validation"
           id="contact-form"
           novalidate
