@@ -1,0 +1,25 @@
+a {
+  color: $white;
+}
+
+main {
+  section {
+    padding: 50px 0;
+
+    &:nth-child(odd) {
+      background-color: $grey;
+    }
+  }
+
+  h2 {
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    section {
+      padding: 100px 0;
+    }
+  }
+}

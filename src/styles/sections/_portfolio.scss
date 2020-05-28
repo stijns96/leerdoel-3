@@ -1,0 +1,57 @@
+#portfolio {
+  figure {
+    margin-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: $shadow;
+    border-radius: $border-radius-sm;
+
+    &::after {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      content: "";
+      position: absolute;
+      transition: $trans-5;
+      background-color: $blue;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0.5;
+      }
+      img {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+      figcaption {
+        opacity: 1;
+      }
+    }
+
+    img {
+      transition: $trans-5;
+    }
+
+    figcaption {
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      transition: $trans-5;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+
+      h3 {
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
