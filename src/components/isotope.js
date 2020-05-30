@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from "react"
 import Isotope from "isotope-layout/js/isotope"
 
+const types = ["Cash", "Credit Card", "Bitcoin"]
+
+function ToggleGroup() {
+  const [active, setActive] = useState(types[0])
+  return (
+    <div>
+      {types.map(type => (
+        <button active={active === type} onClick={() => setActive(type)}>
+          {type}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 const IsotopeReact = () => {
   // store the isotope object in one state
   const [isotope, setIsotope] = useState(null)
@@ -29,6 +44,7 @@ const IsotopeReact = () => {
   return (
     <>
       <div className="row">
+        <ToggleGroup />
         <div className="filter-button-group mx-auto">
           <button
             type="button"
