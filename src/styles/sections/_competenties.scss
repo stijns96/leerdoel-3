@@ -15,14 +15,14 @@
         position: relative;
         border-radius: 50px;
         margin-bottom: 0.5rem;
-        background-color: $white;
+        background-color: $grey;
 
         .skillbar-inner {
-          width: 90%;
           height: 100%;
           position: absolute;
           border-radius: 50px;
           background-color: $blue;
+          transition: 0.5s;
         }
       }
     }

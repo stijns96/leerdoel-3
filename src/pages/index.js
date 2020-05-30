@@ -3,8 +3,20 @@ import config from "../../config"
 
 import { Link } from "react-scroll"
 
+// import {
+//   TimelineMax,
+//   TweenLite,
+//   CSSPlugin,
+//   ScrollToPlugin,
+//   Draggable,
+// } from "gsap/all"
+
+import { Controller, Scene } from "react-scrollmagic"
+import { Tween } from "react-gsap"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GridFilter from "../components/isotope"
 
 import Radicalisering from "../images/portfolio/radicalisering-portfolio-item_600x338.jpg"
 import Pinkpop from "../images/portfolio/pinkpop-portfolio-item_600x338.jpg"
@@ -14,383 +26,307 @@ import RadicaliseringPDF from "../files/portfolio-item-radicalisering.pdf"
 import PinkpopPDF from "../files/portfolio-item-pinkpop.pdf"
 import TrekvlietpleinPDF from "../files/portfolio-item-trekvlietplein.pdf"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Veiligheidskundige in opleiding" />
-
-    {/* HOME */}
-    <section id="home">
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1>
-              Sophie Peeman <span>Veiligheidskundige in opleiding</span>
-            </h1>
+class IndexPage extends React.Component {
+  render() {
+    return (
+      <Layout>
+        <SEO title="Veiligheidskundige in opleiding" />
+        {/* HOME */}
+        <div className="section" />
+        <section id="home">
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <Controller>
+                  <Scene
+                    classToggle="fadeInUp"
+                    reverse={false}
+                    triggerHook="onCenter"
+                  >
+                    <Tween from={{ y: 20, opacity: 0 }}>
+                      <h1>
+                        Sophie Peeman{" "}
+                        <span>Veiligheidskundige in opleiding</span>
+                      </h1>
+                    </Tween>
+                  </Scene>
+                </Controller>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    {/* OVER MIJ */}
-    <section id="over-mij">
-      <div className="container">
-        <div className="row">
-          <div className="col col-xl-10 mx-xl-auto text-center">
-            <h2>Over mij</h2>
-            <p>
-              Mijn naam is Sophie Peeman. Ik ben student Integrale
-              Veiligheidskunde aan de Haagse Hogeschool en gedreven om te werken
-              aan een veiligere samenleving. Doordat ik stressbestendig ben en
-              hoofd- en bijzaken van elkaar kan onderscheiden, lukt het mij om
-              resultaatgericht te werken binnen de gevraagde tijd. Dankzij mijn
-              veelzijdige werkervaring en deelname aan teamsporten, ben ik een
-              echte teamplayer wat mij communicatief sterk heeft gemaakt. Bij
-              mijn vrienden sta ik bekend om mijn enthousiaste en positieve
-              persoonlijkheid.
-            </p>
+        </section>
+        {/* OVER MIJ */}
+        <section id="over-mij">
+          <div className="container">
+            <div className="row">
+              <div className="col col-xl-10 mx-xl-auto text-center">
+                <Controller>
+                  <Scene
+                    classToggle="fadeInUp"
+                    reverse={false}
+                    triggerHook="onCenter"
+                  >
+                    <Tween from={{ y: 20, opacity: 0 }}>
+                      <h2>Over mij</h2>
+                    </Tween>
+                  </Scene>
+                  <Scene
+                    classToggle="fadeInUp"
+                    reverse={false}
+                    triggerHook="onCenter"
+                  >
+                    <Tween from={{ y: 20, opacity: 0 }}>
+                      <p>
+                        Mijn naam is Sophie Peeman. Ik ben student Integrale
+                        Veiligheidskunde aan de Haagse Hogeschool en gedreven om
+                        te werken aan een veiligere samenleving. Doordat ik
+                        stressbestendig ben en hoofd- en bijzaken van elkaar kan
+                        onderscheiden, lukt het mij om resultaatgericht te
+                        werken binnen de gevraagde tijd. Dankzij mijn
+                        veelzijdige werkervaring en deelname aan teamsporten,
+                        ben ik een echte teamplayer wat mij communicatief sterk
+                        heeft gemaakt. Bij mijn vrienden sta ik bekend om mijn
+                        enthousiaste en positieve persoonlijkheid.
+                      </p>
+                    </Tween>
+                  </Scene>
+                </Controller>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+        {/* Competenties */}
+        <section id="competenties">
+          <div className="container">
+            <div className="row skills">
+              <div className="col-12 text-center">
+                <Controller>
+                  <Scene
+                    classToggle="fadeInUp"
+                    reverse={false}
+                    triggerHook="onCenter"
+                  >
+                    <Tween from={{ y: 20, opacity: 0 }}>
+                      <h2>Competenties</h2>
+                    </Tween>
+                  </Scene>
+                </Controller>
+              </div>
 
-    {/* Competenties */}
-    <section id="competenties">
-      <div className="container">
-        <div className="row skills">
-          <div className="col-12 text-center">
-            <h2>Competenties</h2>
+              {config.competentions.map(social => {
+                const { title, count, description } = social
+                return (
+                  <div className="skill col-12 col-lg-6">
+                    <Controller>
+                      <Scene
+                        classToggle="fadeInUp"
+                        reverse={false}
+                        triggerHook="onCenter"
+                      >
+                        <Tween from={{ y: 20, opacity: 0 }}>
+                          <div className="title">
+                            <h4>{title}</h4>
+                            <span className="count">{count}</span>
+                          </div>
+                          <div className="skillbar">
+                            <Controller>
+                              <Scene reverse={false} triggerHook="onCenter">
+                                <Tween from={{ width: 0 }}>
+                                  <div
+                                    className="skillbar-inner"
+                                    style={{ width: count + "%" }}
+                                  ></div>
+                                </Tween>
+                              </Scene>
+                            </Controller>
+                          </div>
+                          <small small className="description">
+                            {description}
+                          </small>
+                        </Tween>
+                      </Scene>
+                    </Controller>
+                  </div>
+                )
+              })}
+            </div>
           </div>
+        </section>
+        {/* CV */}
+        <section id="portfolio">
+          <div className="container">
+            <div className="row">
+              <div className="col text-center">
+                <h2>Portfolio</h2>
+              </div>
+            </div>
 
-          {config.competentions.map(social => {
-            const { title, count, description } = social
-            return (
-              <div className="skill col-12 col-lg-6">
-                <div className="title">
-                  <h4>{title}</h4>
-                  <span className="count">{count}</span>
+            <div className="row">
+              <div className="col-md-4 mb-5 mb-md-0">
+                <a
+                  href={RadicaliseringPDF}
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                >
+                  <figure>
+                    <img
+                      className="img-fluid"
+                      src={Radicalisering}
+                      alt="Portfolio item Radicalisering"
+                    />
+                    <figcaption>
+                      <h3 className="img-title">Radicalisering</h3>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+
+              <div className="col-md-4 mb-5 mb-md-0">
+                <a href={PinkpopPDF} target="_blank" rel="nofollow noreferrer">
+                  <figure>
+                    <img
+                      className="img-fluid"
+                      src={Pinkpop}
+                      alt="Portfolio item Pinkpop"
+                    />
+                    <figcaption>
+                      <h3 className="img-title">Pinkpop</h3>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+
+              <div className="col-md-4">
+                <a
+                  href={TrekvlietpleinPDF}
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                >
+                  <figure>
+                    <img
+                      className="img-fluid"
+                      src={Trekvlietplein}
+                      alt="Portfolio item Trekvlietplein"
+                    />
+                    <figcaption>
+                      <h3 className="img-title">Trekvlietplein</h3>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* CV */}
+        <section id="cv">
+          <div className="container">
+            <div className="row">
+              <div className="col text-center">
+                <h2>CV</h2>
+              </div>
+            </div>
+
+            <GridFilter />
+
+            <div className="row" id="pdf">
+              <div className="col-12 col-md-8">
+                <h3>Liever een PDF?</h3>
+                <p className="lead">
+                  Deze kunt u gemakkelijk aanvragen door contact met mij op te
+                  nemen.
+                </p>
+              </div>
+              <div className="col-12 col-md-4 align-self-center text-center">
+                <Link
+                  activeClass="active"
+                  className="btn btn-light"
+                  to="contact"
+                  spy={true}
+                  smooth="easeInOutQuad"
+                  duration={1000}
+                  offset={-50}
+                >
+                  Aanvragen
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* CONTACT */}
+        <section id="contact">
+          <div className="container">
+            <div className="row">
+              <div className="col text-center">
+                <h2>Contact</h2>
+              </div>
+            </div>
+            <form
+              className="row"
+              name="contact"
+              id="contact-form"
+              method="POST"
+              netlify-honeypot="bot-field"
+              data-netlify="true"
+            >
+              <div className="col-12 col-md-6 mb-4 mb-md-0">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="naam"
+                    placeholder="Naam *"
+                    required
+                  />
                 </div>
-                <div className="skillbar">
-                  <div className="skillbar-inner" data-width={count}></div>
+                <div className="form-group">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    placeholder="E-mailadres *"
+                    required
+                  />
                 </div>
-                <small small className="description">
-                  {description}
-                </small>
+                <div className="form-group">
+                  <input
+                    type="tel"
+                    className="form-control"
+                    id="telefoonnummer"
+                    placeholder="Telefoonnummer"
+                  />
+                </div>
               </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
 
-    {/* CV */}
-    <section id="portfolio">
-      <div className="container">
-        <div className="row">
-          <div className="col text-center">
-            <h2>Portfolio</h2>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-4 mb-5 mb-md-0">
-            <a
-              href={RadicaliseringPDF}
-              target="_blank"
-              rel="nofollow noreferrer"
-            >
-              <figure>
-                <img
-                  className="img-fluid"
-                  src={Radicalisering}
-                  alt="Portfolio Item Radicalisering"
-                />
-                <figcaption>
-                  <h3 className="img-title">Radicalisering</h3>
-                </figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div className="col-md-4 mb-5 mb-md-0">
-            <a href={PinkpopPDF} target="_blank" rel="nofollow noreferrer">
-              <figure>
-                <img
-                  className="img-fluid"
-                  src={Pinkpop}
-                  alt="Portfolio Item Pinkpop"
-                />
-                <figcaption>
-                  <h3 className="img-title">Pinkpop</h3>
-                </figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div className="col-md-4">
-            <a
-              href={TrekvlietpleinPDF}
-              target="_blank"
-              rel="nofollow noreferrer"
-            >
-              <figure>
-                <img
-                  className="img-fluid"
-                  src={Trekvlietplein}
-                  alt="Portfolio Item Trekvlietplein"
-                />
-                <figcaption>
-                  <h3 className="img-title">Trekvlietplein</h3>
-                </figcaption>
-              </figure>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* CV */}
-    <section id="cv">
-      <div className="container">
-        <div className="row">
-          <div className="col text-center">
-            <h2>CV</h2>
-          </div>
-        </div>
-
-        <div className="row" id="gallery">
-          <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">Woodstone</h4>
-                <p className="card-text">Leidinggevende</p>
-                <footer>
-                  <small className="card-text text-muted">2018 - 2019</small>
-                  <small className="card-link refer">
-                    <a
-                      href="files/getuigschrift-Sophie-peeman.pdf"
-                      title="Woodstone getuigschrift Sophie Peeman"
-                      target="_blank"
-                    >
-                      Bekijk referentie
-                    </a>
-                  </small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-briefcase"></i>
-                  </span>
-                </footer>
+              <div className="col-12 col-md-6">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="onderwerp"
+                    placeholder="Onderwerp"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    id="bericht"
+                    rows="3"
+                    placeholder="Bericht"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">
+                  Submit
+                </button>
               </div>
-            </div>
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="form-name" value="contact" />
+            </form>
           </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">Roest</h4>
-                <p className="card-text">Gastvrouw</p>
-                <footer>
-                  <small className="card-text text-muted">2016 - 2019</small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-briefcase"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">Expo</h4>
-                <p className="card-text">Verkoopmedewerkster</p>
-                <footer>
-                  <small className="card-text text-muted">2017 - 2018</small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-briefcase"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item werk">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">Wijnplaza</h4>
-                <p className="card-text">Commercieel medewerkster</p>
-                <footer>
-                  <small className="card-text text-muted">2017 - 2018</small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-briefcase"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item stage">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">Ronald McDonald's Kinderhuis</h4>
-                <p className="card-text">Begeleidster</p>
-                <footer>
-                  <small className="card-text text-muted">
-                    Dec 2014 - Jan 2015
-                  </small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-id-card-alt"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item stage">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">BAM Woningbouw</h4>
-                <p className="card-text">Begeleidster</p>
-                <footer>
-                  <small className="card-text text-muted">Feb 2015</small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-id-card-alt"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item school">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">De Haagse Hogeschool</h4>
-                <p className="card-text">Integrale Veiligheidskunde</p>
-                <footer>
-                  <small className="card-text text-muted">
-                    Sep 2018 - Heden
-                  </small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-school"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-lg-4 item school">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h4 className="card-title">ONC Parkdreef</h4>
-                <p className="card-text">Hoger algemeen voortgezet onderwijs</p>
-                <footer>
-                  <small className="card-text text-muted">2012 - 2017</small>
-                  <span className="card-text text-muted">
-                    <i className="fas fa-school"></i>
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row" id="pdf">
-          <div className="col-12 col-md-8">
-            <h3>Liever een PDF?</h3>
-            <p className="lead">
-              Deze kunt u gemakkelijk aanvragen door contact met mij op te
-              nemen.
-            </p>
-          </div>
-          <div className="col-12 col-md-4 align-self-center text-center">
-            <Link
-              activeClass="active"
-              className="btn btn-light"
-              to="contact"
-              spy={true}
-              smooth="easeInOutQuad"
-              duration={1000}
-              offset={-50}
-            >
-              Aanvragen
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* CONTACT */}
-    <section id="contact">
-      <div className="container">
-        <div className="row">
-          <div className="col text-center">
-            <h2>Contact</h2>
-          </div>
-        </div>
-        <form
-          className="row"
-          name="contact"
-          id="contact-form"
-          method="POST"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-        >
-          <div className="col-12 col-md-6 mb-4 mb-md-0">
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                id="naam"
-                placeholder="Naam *"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="E-mailadres *"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="tel"
-                className="form-control"
-                id="telefoonnummer"
-                placeholder="Telefoonnummer"
-              />
-            </div>
-          </div>
-
-          <div className="col-12 col-md-6">
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                id="onderwerp"
-                placeholder="Onderwerp"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                className="form-control"
-                id="bericht"
-                rows="3"
-                placeholder="Bericht"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              Submit
-            </button>
-          </div>
-          <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
-        </form>
-      </div>
-    </section>
-  </Layout>
-)
-
+        </section>
+      </Layout>
+    )
+  }
+}
 export default IndexPage
