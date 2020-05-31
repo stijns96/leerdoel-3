@@ -3,20 +3,12 @@ import config from "../../config"
 
 import { Link } from "react-scroll"
 
-// import {
-//   TimelineMax,
-//   TweenLite,
-//   CSSPlugin,
-//   ScrollToPlugin,
-//   Draggable,
-// } from "gsap/all"
-
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GridFilter from "../components/isotope"
+// import GridFilter from "../components/isotope"
 
 import Radicalisering from "../images/portfolio/radicalisering-portfolio-item_600x338.jpg"
 import Pinkpop from "../images/portfolio/pinkpop-portfolio-item_600x338.jpg"
@@ -226,7 +218,7 @@ class IndexPage extends React.Component {
               </div>
             </div>
 
-            <GridFilter />
+            {/* <GridFilter /> */}
 
             <div className="row" id="pdf">
               <div className="col-12 col-md-8">
