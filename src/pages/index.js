@@ -267,6 +267,7 @@ class IndexPage extends React.Component {
                     className="form-control"
                     id="naam"
                     placeholder="Naam *"
+                    name="naam"
                     required
                   />
                 </div>
@@ -276,6 +277,7 @@ class IndexPage extends React.Component {
                     className="form-control"
                     id="email"
                     placeholder="E-mailadres *"
+                    name="e-mailadres"
                     required
                   />
                 </div>
@@ -285,6 +287,7 @@ class IndexPage extends React.Component {
                     className="form-control"
                     id="telefoonnummer"
                     placeholder="Telefoonnummer"
+                    name="telefoonnummer"
                   />
                 </div>
               </div>
@@ -296,6 +299,7 @@ class IndexPage extends React.Component {
                     className="form-control"
                     id="onderwerp"
                     placeholder="Onderwerp"
+                    name="onderwerp"
                     required
                   />
                 </div>
@@ -305,6 +309,7 @@ class IndexPage extends React.Component {
                     id="bericht"
                     rows="3"
                     placeholder="Bericht"
+                    name="bericht"
                     required
                   ></textarea>
                 </div>
