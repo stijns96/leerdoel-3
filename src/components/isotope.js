@@ -29,11 +29,10 @@ const IsotopeReact = () => {
   return (
     <>
       <div className="row">
-        <ToggleGroup />
         <div className="filter-button-group mx-auto">
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn"
             onClick={() => setFilterKey("*")}
           >
             Alles
