@@ -8,7 +8,7 @@ import { Tween } from "react-gsap"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import IsotopeLayout from "../components/isotope-2"
+// import IsotopeReact from "../components/isotope"
 
 import Radicalisering from "../images/portfolio/radicalisering-portfolio-item_600x338.jpg"
 import Pinkpop from "../images/portfolio/pinkpop-portfolio-item_600x338.jpg"
@@ -218,7 +218,7 @@ class IndexPage extends React.Component {
               </div>
             </div>
 
-            {/* <IsotopeLayout /> */}
+            {/* <IsotopeReact /> */}
 
             <div className="row" id="pdf">
               <div className="col-12 col-md-8">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Isotope from "isotope-layout/js/isotope"
+import $ from "jquery"
 
 const IsotopeReact = () => {
   // store the isotope object in one state
@@ -17,6 +18,16 @@ const IsotopeReact = () => {
     )
   }, [])
 
+  useEffect(() => {
+    $(".filter-button-group").each(function (i, buttonGroup) {
+      var $buttonGroup = $(buttonGroup)
+      $buttonGroup.on("click", "button", function () {
+        $buttonGroup.find(".btn-primary").removeClass("btn-primary")
+        $(this).addClass("btn-primary")
+      })
+    })
+  }, [])
+
   // handling filter key change
   useEffect(() => {
     if (isotope) {
@@ -32,7 +43,7 @@ const IsotopeReact = () => {
         <div className="filter-button-group mx-auto">
           <button
             type="button"
-            className="btn"
+            className="btn btn-primary"
             onClick={() => setFilterKey("*")}
           >
             Alles
